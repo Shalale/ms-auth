@@ -1,20 +1,31 @@
 version: '3.8'
 services:
-  database:
-    hostname: postgres-hostname
-    image: postgres
-    container_name: postgresql
-    volumes:
-      - db-data:/var/lib/tweet-postgresql
-    environment:
-      POSTGRES_USER: root
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: ms_tweet
+#  database:
+#    hostname: postgres-hostname
+#    image: postgres
+#    container_name: postgresql
+#    volumes:
+#      - db-data:/var/lib/tweet-postgresql
+#    environment:
+#      POSTGRES_USER: root
+#      POSTGRES_PASSWORD: password
+#      POSTGRES_DB: auth
+#    ports:
+#      - "5432:5432"
+#    networks:
+#      - ms_network
+  redis:
+    image: "redis"
+    command: redis-server --requirepass sOmE_sEcUrE_pAsS
     ports:
-      - "5432:5432"
+      - "6379:6379"
+    volumes:
+      - $PWD/redis-data:/var/lib/redis
+      - $PWD/redis.conf:/usr/local/etc/redis/redis.conf
+    environment:
+      - REDIS_REPLICATION_MODE=master
     networks:
       - ms_network
-
 
 
 networks:

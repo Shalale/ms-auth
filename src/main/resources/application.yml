@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/ms_auth
+    url: jdbc:postgresql://localhost:5432/auth
     username: root
     password: password
   jpa:
@@ -11,12 +11,10 @@ spring:
           use_jdbc_metadata_defaults: false
     database-platform: org.hibernate.dialect.PostgreSQL10Dialect
     show-sql: true
-  liquibase:
-    change-log: classpath:liquibase/changelog-master.yml
 
-#redis:
-#  server:
-#    urls: redis://localhost:6379
+redis:
+  server:
+    urls: redis://localhost:6379
 
 jwt:
   accessToken:
@@ -37,3 +35,6 @@ crypt:
   client:
     ms-user:
       endpoint: http://localhost:8000
+
+server:
+  port: 8082
