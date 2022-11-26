@@ -1,4 +1,4 @@
-package com.example.msauth.model;
+package com.example.msauth.model.jwt;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

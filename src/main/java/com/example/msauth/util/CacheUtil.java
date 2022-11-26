@@ -1,4 +1,4 @@
-package com.example.ms.tweet.util;
+package com.example.msauth.util;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

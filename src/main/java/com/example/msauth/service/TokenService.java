@@ -1,11 +1,12 @@
-package com.example.ms.tweet.service;
+package com.example.msauth.service;
 
-import com.example.ms.tweet.exception.AuthException;
-import com.example.ms.tweet.model.dto.AuthPayloadDto;
-import com.example.ms.tweet.model.dto.TokenDto;
-import com.example.ms.tweet.model.jwt.AuthCacheData;
-import com.example.ms.tweet.util.CacheUtil;
-import com.example.ms.tweet.util.JwtUtil;
+
+import com.example.msauth.exception.AuthException;
+import com.example.msauth.model.dto.AuthPayloadDto;
+import com.example.msauth.model.dto.TokenDto;
+import com.example.msauth.model.jwt.AuthCacheData;
+import com.example.msauth.util.CacheUtil;
+import com.example.msauth.util.JwtUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -15,20 +16,14 @@ import java.security.KeyFactory;
 import java.security.interfaces.RSAPublicKey;
 import java.security.spec.X509EncodedKeySpec;
 
-import static com.example.ms.tweet.mapper.factory.TokenFactory.buildAccessTokenClaimsSet;
-import static com.example.ms.tweet.mapper.factory.TokenFactory.buildRefreshTokenClaimsSet;
-import static com.example.ms.tweet.model.constant.AuthConstants.AUTH_CACHE_DATA_PREFIX;
-import static com.example.ms.tweet.model.constant.AuthConstants.RSA;
-import static com.example.ms.tweet.model.constant.AuthConstants.TOKEN_EXPIRE_DAY_COUNT;
-import static com.example.ms.tweet.model.constant.ExceptionConstants.REFRESH_TOKEN_COUNT_EXPIRED_MESSAGE;
-import static com.example.ms.tweet.model.constant.ExceptionConstants.REFRESH_TOKEN_EXPIRED_MESSAGE;
-import static com.example.ms.tweet.model.constant.ExceptionConstants.TOKEN_EXPIRED_CODE;
-import static com.example.ms.tweet.model.constant.ExceptionConstants.TOKEN_EXPIRED_MESSAGE;
-import static com.example.ms.tweet.model.constant.ExceptionConstants.USER_UNAUTHORIZED_CODE;
-import static com.example.ms.tweet.model.constant.ExceptionConstants.USER_UNAUTHORIZED_MESSAGE;
+
+import static com.example.msauth.mapper.TokenFactory.buildAccessTokenClaimsSet;
+import static com.example.msauth.mapper.TokenFactory.buildRefreshTokenClaimsSet;
+import static com.example.msauth.model.constant.AuthConstants.*;
+import static com.example.msauth.model.constant.ExceptionConstants.*;
 import static java.time.temporal.ChronoUnit.DAYS;
-import static jodd.util.Base64.encodeToString;
 import static org.springframework.util.Base64Utils.decodeFromString;
+import static org.springframework.util.Base64Utils.encodeToString;
 
 @Slf4j
 @Service
@@ -44,7 +39,9 @@ public class TokenService {
     @Value("${jwt.refreshToken.expiration.time}")
     private int refreshTokenExpirationTime;
 
-    public TokenDto generateToken(String userId, int refreshTokenExpirationCount) {
+        public TokenDto generateToken(String userId, int refreshTokenExpirationCount) {
+
+        if (refreshTokenExpirationCount == 0) refreshTokenExpirationTime=50;
 
         var accessTokenClaimsSet = buildAccessTokenClaimsSet(
                 userId,

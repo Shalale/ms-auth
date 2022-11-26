@@ -1,4 +1,4 @@
-package com.example.ms.tweet.model.constant;
+package com.example.msauth.model.constant;
 
 public interface AuthConstants {
     String RSA = "RSA";

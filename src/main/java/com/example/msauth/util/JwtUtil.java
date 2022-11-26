@@ -1,8 +1,9 @@
-package com.example.ms.tweet.util;
+package com.example.msauth.util;
 
-import com.example.ms.tweet.exception.AuthException;
-import com.example.ms.tweet.model.jwt.AccessTokenClaimsSet;
-import com.example.ms.tweet.model.jwt.RefreshTokenClaimsSet;
+
+import com.example.msauth.exception.AuthException;
+import com.example.msauth.model.jwt.AccessTokenClaimsSet;
+import com.example.msauth.model.jwt.RefreshTokenClaimsSet;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.nimbusds.jose.JOSEException;
 import com.nimbusds.jose.JWSAlgorithm;
@@ -23,10 +24,11 @@ import java.security.interfaces.RSAPublicKey;
 import java.text.ParseException;
 import java.util.Date;
 
-import static com.example.ms.tweet.model.constant.AuthConstants.KEY_SIZE;
-import static com.example.ms.tweet.model.constant.AuthConstants.RSA;
-import static com.example.ms.tweet.model.constant.ExceptionConstants.USER_UNAUTHORIZED_CODE;
-import static com.example.ms.tweet.model.constant.ExceptionConstants.USER_UNAUTHORIZED_MESSAGE;
+
+import static com.example.msauth.model.constant.AuthConstants.KEY_SIZE;
+import static com.example.msauth.model.constant.AuthConstants.RSA;
+import static com.example.msauth.model.constant.ExceptionConstants.USER_UNAUTHORIZED_CODE;
+import static com.example.msauth.model.constant.ExceptionConstants.USER_UNAUTHORIZED_MESSAGE;
 
 @Slf4j
 @Component

@@ -5,9 +5,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor(staticName = "of")
+@AllArgsConstructor
 @NoArgsConstructor
-public class AuthPayloadDto {
+public class SignInDto {
+    private String username;
+    private String password;
 
-    private String userId;
 }

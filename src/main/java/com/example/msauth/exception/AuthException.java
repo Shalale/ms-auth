@@ -1,4 +1,4 @@
-package com.example.ms.tweet.exception;
+package com.example.msauth.exception;
 
 import lombok.Getter;
 

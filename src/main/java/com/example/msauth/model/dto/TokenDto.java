@@ -1,4 +1,4 @@
-package com.example.ms.tweet.model.dto;
+package com.example.msauth.model.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,4 +1,4 @@
-package com.example.msauth.model;
+package com.example.msauth.model.jwt;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;

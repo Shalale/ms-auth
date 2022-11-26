@@ -1,12 +1,13 @@
-package com.example.ms.tweet.mapper.factory;
+package com.example.msauth.mapper;
 
-import com.example.ms.tweet.model.jwt.AccessTokenClaimsSet;
-import com.example.ms.tweet.model.jwt.RefreshTokenClaimsSet;
+
+import com.example.msauth.model.jwt.AccessTokenClaimsSet;
+import com.example.msauth.model.jwt.RefreshTokenClaimsSet;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
-import static com.example.ms.tweet.model.constant.AuthConstants.ISSUER;
+import static com.example.msauth.model.constant.AuthConstants.ISSUER;
 import static lombok.AccessLevel.PRIVATE;
 
 @NoArgsConstructor(access = PRIVATE)
