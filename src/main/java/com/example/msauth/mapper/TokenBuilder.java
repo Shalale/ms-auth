@@ -11,7 +11,7 @@ import static com.example.msauth.model.constant.AuthConstants.ISSUER;
 import static lombok.AccessLevel.PRIVATE;
 
 @NoArgsConstructor(access = PRIVATE)
-public class TokenFactory {
+public class TokenBuilder {
 
     public static AccessTokenClaimsSet buildAccessTokenClaimsSet(String userId, Date expirationTime) {
 

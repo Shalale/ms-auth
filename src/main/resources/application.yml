@@ -1,17 +1,3 @@
-spring:
-  datasource:
-    driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/auth
-    username: root
-    password: password
-  jpa:
-    properties:
-      hibernate:
-        temp:
-          use_jdbc_metadata_defaults: false
-    database-platform: org.hibernate.dialect.PostgreSQL10Dialect
-    show-sql: true
-
 redis:
   server:
     urls: redis://localhost:6379

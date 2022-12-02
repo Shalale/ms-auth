@@ -17,8 +17,8 @@ import java.security.interfaces.RSAPublicKey;
 import java.security.spec.X509EncodedKeySpec;
 
 
-import static com.example.msauth.mapper.TokenFactory.buildAccessTokenClaimsSet;
-import static com.example.msauth.mapper.TokenFactory.buildRefreshTokenClaimsSet;
+import static com.example.msauth.mapper.TokenBuilder.buildAccessTokenClaimsSet;
+import static com.example.msauth.mapper.TokenBuilder.buildRefreshTokenClaimsSet;
 import static com.example.msauth.model.constant.AuthConstants.*;
 import static com.example.msauth.model.constant.ExceptionConstants.*;
 import static java.time.temporal.ChronoUnit.DAYS;
@@ -39,9 +39,9 @@ public class TokenService {
     @Value("${jwt.refreshToken.expiration.time}")
     private int refreshTokenExpirationTime;
 
-        public TokenDto generateToken(String userId, int refreshTokenExpirationCount) {
+    public TokenDto generateToken(String userId, int refreshTokenExpirationCount) {
 
-        if (refreshTokenExpirationCount == 0) refreshTokenExpirationTime=50;
+        if (refreshTokenExpirationCount == 0) refreshTokenExpirationTime = 50;
 
         var accessTokenClaimsSet = buildAccessTokenClaimsSet(
                 userId,
@@ -51,7 +51,7 @@ public class TokenService {
         var refreshTokenClaimsSet = buildRefreshTokenClaimsSet(
                 userId,
                 refreshTokenExpirationCount,
-                jwtUtil.generateSessionExpirationTime( refreshTokenExpirationTime)
+                jwtUtil.generateSessionExpirationTime(refreshTokenExpirationTime)
         );
 
         var keyPair = jwtUtil.generateKeyPair();
