@@ -18,9 +18,9 @@ crypt:
   token-secret-key: a
   global-salt: app-global-salt
 
-  client:
-    ms-user:
-      endpoint: http://localhost:8000
+client:
+  ms-user:
+    endpoint: http://localhost:8000
 
 server:
   port: 8082
